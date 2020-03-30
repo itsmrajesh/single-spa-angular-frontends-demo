@@ -1,0 +1,36 @@
+<div class="row mt-2">
+    <div class="col-md-6">
+        <div *ngIf="labels && labels.length>0">
+        
+            <select class="form-control" (change)="showTeamDetails($event)">
+                <option value="">Select Team</option>
+                <option *ngFor="let label of labels">
+                {{label}}
+                </option>
+            </select>
+
+            <table class="table table-striped" *ngIf="playerDetails && playerDetails.length > 0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Label</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let player of playerDetails">
+                        <td>{{player.name}}</td>
+                        <td>{{player.role}}</td>
+                        <td>{{player.label}}</td>
+                        <td>{{player.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 mt-3">
+
+        <google-chart [data]="pieChart"></google-chart>
+    </div>
+</div>

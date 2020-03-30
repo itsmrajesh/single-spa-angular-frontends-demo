@@ -6,13 +6,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { ReadComponent } from './read/read.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  { path: 'app1/add', component: AddComponent },
-  { path: 'app1/read', component: ReadComponent },
-  { path: 'app1/update', component: UpdateComponent },
-  { path: 'app1/delete', component: DeleteComponent },
+  { path: '', component: AddComponent,pathMatch:'full' },
+  { path: 'add', component: AddComponent },
+  { path: 'read', component: ReadComponent },
+  { path: 'update', component: UpdateComponent },
+  { path: 'delete', component: DeleteComponent },
   { path: '**', component: EmptyRouteComponent },
 ];
 
@@ -20,7 +22,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: APP_BASE_HREF, useValue: '/app1' },
   ],
 })
 export class AppRoutingModule { }
