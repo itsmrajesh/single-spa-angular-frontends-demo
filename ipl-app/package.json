@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run serve:single-spa",
-    "build": "npm run build:single-spa",
+    "build": "npm run build:single-spa --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:single-spa": "ng build --prod --deploy-url http://localhost:4400/",
+    "build:single-spa": "ng build --prod --deploy-url /dist/ipl --output-hashing none",
     "serve:single-spa": "ng serve --disable-host-check --port 4400 --deploy-url http://localhost:4400/ --live-reload false"
   },
   "private": true,
@@ -29,6 +29,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
+    "@babel/compat-data": "7.8.0",
     "@angular-devkit/build-angular": "~0.803.19",
     "@angular/cli": "~8.3.19",
     "@angular/compiler-cli": "~8.2.14",

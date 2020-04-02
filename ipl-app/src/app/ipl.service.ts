@@ -6,17 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class IplService {
-  constructor(private http:HttpClient) {}
-  
-  getTeamRoleCount(teamName:string):Observable<any[]>{
+  constructor(private http: HttpClient) { }
+
+  getTeamRoleCount(teamName: string): Observable<any[]> {
     return this.http.get<any[]>(`https://indipl2020.herokuapp.com/ipl2020/team/role/${teamName}`);
   }
-  getPlayerDetails(teamName: string):Observable<any[]> {
+  getPlayerDetails(teamName: string): Observable<any[]> {
     return this.http.get<any[]>(`https://indipl2020.herokuapp.com/ipl2020/team/${teamName}`);
   }
 
 
-  featchLabels():Observable<any>{
-      return this.http.get<any>("https://indipl2020.herokuapp.com/ipl2020/team/labels")
+  featchLabels(): Observable<any> {
+    return this.http.get<any>("https://indipl2020.herokuapp.com/ipl2020/team/labels")
   }
 }
